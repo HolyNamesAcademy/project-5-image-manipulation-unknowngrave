@@ -32,21 +32,34 @@ public class Controller {
 
                 switch (command) {
                     case "load": {
-                        System.out.println("Enter image path:");
+                        System.out.println("Enter image path:"); // todo: hagotur: deal with paths with spaces
                         String path = scanner.next();
                         image = ImageManipulator.LoadImage(path);
+                        DrawImage();
                         break;
                     }
                     case "grayscale": {
                         image = ImageManipulator.ConvertToGrayScale(image);
+                        DrawImage();
                         break;
                     }
                     case "sepia": {
                         image = ImageManipulator.ConvertToSepia(image);
+                        DrawImage();
                         break;
                     }
                     case "bw": {
                         image = ImageManipulator.ConvertToBW(image);
+                        DrawImage();
+                        break;
+                    }
+                    case "rotate": {
+                        image = ImageManipulator.RotateImage(image);
+                        DrawImage();
+                        break;
+                    }
+                    case "invert": {
+                        image = ImageManipulator.InvertImage(image);
                         break;
                     }
                     case "save": {
@@ -59,6 +72,29 @@ public class Controller {
                         ImageManipulator.SaveImage(image, format, path);
                         break;
                     }
+                    case "instagram": {
+                        image = ImageManipulator.InstagramFilter(image);
+                        DrawImage();
+                        break;
+                    }
+                    case "hue": {
+                        System.out.println("Enter hue to add:");
+                        int hue = scanner.nextInt();
+                        image = ImageManipulator.AddHue(image, hue);
+                        break;
+                    }
+                    case "saturation": {
+                        System.out.println("Enter saturation to add:");
+                        double saturation = scanner.nextDouble();
+                        image = ImageManipulator.AddSaturation(image, saturation);
+                        break;
+                    }
+                    case "lightness": {
+                        System.out.println("Enter lightness to add:");
+                        double lightness = scanner.nextDouble();
+                        image = ImageManipulator.AddLightness(image, lightness);
+                        break;
+                    }
                     case "quit": {
                         return;
                     }
@@ -66,8 +102,6 @@ public class Controller {
                         break;
                     }
                 }
-
-                DrawImage();
             }
             catch (IOException e) {
                 System.out.println(e.getMessage());

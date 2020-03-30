@@ -1,8 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.DoubleSummaryStatistics;
-import java.util.jar.Pack200;
 
+import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -84,5 +83,158 @@ public class ImageManipulator {
 
     public static void SaveImage(ImageWrapper image, String format, String path) throws IOException {
         image.Save(format, path);
+    }
+
+    public  static ImageWrapper ConstructedImage(int xWidth, int xHeight) {
+        ImageWrapper image = new ImageWrapper(xWidth, xHeight);
+        int h = image.GetHeight();
+        int w = image.GetWidth();
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                int r = (i * image.GetWidth() + j) / 256;
+                int g = (i + j * image.GetHeight()) / 256;
+                int b = 255 - ((i *  128 / h) + (j * 128 / w));
+
+                image.SetRGB(j, i, new RGB(r, g, b));
+            }
+        }
+        return image;
+    }
+
+    public  static ImageWrapper RotateImage(ImageWrapper image) {
+        ImageWrapper rotatedImage = new ImageWrapper(image.GetHeight(), image.GetWidth());
+        for (int i = 0; i < rotatedImage.GetHeight(); i++) {
+            for (int j = 0; j < rotatedImage.GetWidth(); j++) {
+                RGB oldPixel = image.GetRGB(i, image.GetHeight() - j - 1);
+                rotatedImage.SetRGB(j, i, oldPixel);
+            }
+        }
+        return rotatedImage;
+    }
+
+    public static ImageWrapper InvertImage(ImageWrapper image) {
+        for (int i = 0; i < image.GetHeight(); i++) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                RGB pixel = image.GetRGB(j, i);
+                RGB invertedPixel = new RGB(255 - pixel.GetRed(), 255 - pixel.GetGreen(), 255 - pixel.GetBlue());
+                image.SetRGB(j, i, invertedPixel);
+            }
+        }
+
+        return image;
+    }
+
+    public static int truncate(int value) {
+        if (value < 0)
+        {
+            return 0;
+        }
+
+        if (value > 255) {
+            return 255;
+        }
+
+        return value;
+    }
+
+    public static ImageWrapper InstagramFilter(ImageWrapper image) throws IOException {
+        // apply transformations
+        for (int i = 0; i < image.GetHeight(); ++i) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                image.SetRGB(j, i, applyTransform(image.GetRGB(j, i)));
+            }
+        }
+
+        // add halo overlay
+        ImageWrapper halo = new ImageWrapper("resources/halo.png");
+        for (int i = 0; i < image.GetHeight(); ++i) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                RGB haloPixel = halo.GetRGB(j * halo.GetWidth() / image.GetWidth(), i * halo.GetHeight() / image.GetHeight());
+                RGB imagePixel = image.GetRGB(j, i);
+                imagePixel.SetRed(truncate((int) (0.65 * imagePixel.GetRed() + 0.35 * haloPixel.GetRed()) + 20));
+                imagePixel.SetGreen(truncate((int) (0.65 * imagePixel.GetGreen() + 0.35 * haloPixel.GetGreen()) + 20));
+                imagePixel.SetBlue(truncate((int) (0.65 * imagePixel.GetBlue() + 0.35 * haloPixel.GetBlue()) + 20));
+
+                image.SetRGB(j, i, imagePixel);
+            }
+        }
+
+        // add decorative grain
+        ImageWrapper grain = new ImageWrapper("resources/decorative_grain.png");
+        for (int i = 0; i < image.GetHeight(); ++i) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                RGB grainPixel = grain.GetRGB(j * grain.GetWidth() / image.GetWidth(), i * grain.GetHeight() / image.GetHeight());
+                RGB imagePixel = image.GetRGB(j, i);
+                imagePixel.SetRed((int) (0.95 * imagePixel.GetRed() + 0.05 * grainPixel.GetRed()));
+                imagePixel.SetGreen((int) (0.95 * imagePixel.GetGreen() + 0.05 * grainPixel.GetGreen()));
+                imagePixel.SetBlue((int) (0.95 * imagePixel.GetBlue() + 0.05 * grainPixel.GetBlue()));
+
+                image.SetRGB(j, i, imagePixel);
+            }
+        }
+        return image;
+    }
+
+    public static RGB applyTransform(RGB rgb) {
+//        int r = (int) (rgb.GetRed() + Math.pow(128 - abs(rgb.GetRed() - 128), .5));
+//        int g = (int) (rgb.GetGreen() - Math.pow(128 - abs(rgb.GetGreen() - 128), .5));
+//        int b = (int) (rgb.GetBlue() + Math.pow((128 - rgb.GetBlue()), .333));
+
+        // not bad
+//        int r = rgb.GetRed() > 128 ? (int) (rgb.GetRed() * 1.1 > 255 ? 255 : rgb.GetRed() * 1.1) : rgb.GetRed();
+//        int g = rgb.GetGreen() > 128 ? (int) (rgb.GetGreen() * .9)  : rgb.GetGreen();
+//        int b = rgb.GetBlue() < 128 ? (int) (rgb.GetBlue() * 1.1) : (int) (rgb.GetBlue() * .9);
+
+        // warm filter
+//        int r = rgb.GetRed();
+//        int g = (int) (rgb.GetGreen() / 1.5);
+//        int b = (int) (rgb.GetBlue() / 3);
+
+        // cold filter
+        int r = (int) (rgb.GetRed() / 1.3);
+        int g = (int) (rgb.GetGreen() / 1.1);
+        int b = rgb.GetBlue();
+
+//        int r = (int) (rgb.GetRed() );
+//        int g = (int) (rgb.GetGreen() );
+//        int b = rgb.GetBlue();
+
+        return new RGB(r, g, b);
+    }
+
+    public static ImageWrapper AddLightness(ImageWrapper image, double lightness) {
+        for (int i = 0; i < image.GetHeight(); ++i) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                HSL hsl = image.GetRGB(j, i).GetHSL();
+                hsl.SetLightness(hsl.GetLightness() + lightness);
+                image.SetRGB(j, i, hsl.GetRGB());
+            }
+        }
+
+        return image;
+    }
+
+    public static ImageWrapper AddSaturation(ImageWrapper image, double saturation) {
+        for (int i = 0; i < image.GetHeight(); ++i) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                HSL hsl = image.GetRGB(j, i).GetHSL();
+                hsl.SetSaturation(hsl.GetSaturation() + saturation);
+                image.SetRGB(j, i, hsl.GetRGB());
+            }
+        }
+
+        return image;
+    }
+
+    public static ImageWrapper AddHue(ImageWrapper image, int hue) {
+        for (int i = 0; i < image.GetHeight(); ++i) {
+            for (int j = 0; j < image.GetWidth(); j++) {
+                HSL hsl = image.GetRGB(j, i).GetHSL();
+                hsl.SetHue(hsl.GetHue() + hue);
+                image.SetRGB(j, i, hsl.GetRGB());
+            }
+        }
+
+        return image;
     }
 }

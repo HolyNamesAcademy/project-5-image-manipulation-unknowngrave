@@ -16,6 +16,10 @@ public class ImageWrapper extends JPanel {
         image = ImageIO.read(new File(imageFilePath));
     }
 
+    public ImageWrapper(int xWidth, int yWidth) {
+        image = new BufferedImage(xWidth, yWidth, BufferedImage.TYPE_INT_RGB);
+    }
+
     public RGB GetRGB(int xVal, int yVal) {
         int rgb = image.getRGB(xVal, yVal);
         int red = (rgb >> 16) & 0x000000FF;

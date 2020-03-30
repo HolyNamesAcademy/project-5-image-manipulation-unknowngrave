@@ -30,14 +30,79 @@ public class RGB {
     }
 
     public void SetRed(int red) {
+        if (red > 255) {
+            this.red = 255;
+            return;
+        }
+
+        if (red < 0) {
+            this.red = 0;
+            return;
+        }
+
         this.red = red;
     }
 
     public void SetGreen(int green) {
+        if (green > 255) {
+            this.green = 255;
+            return;
+        }
+
+        if (green < 0) {
+            this.green = 0;
+            return;
+        }
+
         this.green = green;
     }
 
     public void SetBlue(int blue) {
+        if (blue > 255) {
+            this.blue = 255;
+            return;
+        }
+
+        if (blue < 0) {
+            this.blue = 0;
+            return;
+        }
+
         this.blue = blue;
+    }
+
+    public HSL GetHSL() {
+        double r = red / (double) 255;
+        double g = green / (double) 255;
+        double b = blue / (double) 255;
+
+        double max = Math.max(r, Math.max(g, b));
+        double min = Math.min(r, Math.min(g, b));
+
+        double l = (max + min) / 2;
+        double delta = max - min;
+
+        double h = 0, s = 0;
+        if (delta < 0.00001)
+        {
+            h = 0;
+            s = 0;
+        }
+        else {
+            if (max == r) {
+                h = (g - b) / delta + (g < b ? 6 : 0);
+            }
+            else if (max == g) {
+                h = (b - r) / delta + 2;
+            }
+            else if (max == b) {
+                h = (r - g) / delta + 4;
+            }
+            h *= 60;
+
+            s = l > 0.5 ? delta / (2 - max - min) : delta / (max + min);
+        }
+
+        return new HSL((int) h, s, l);
     }
 }
