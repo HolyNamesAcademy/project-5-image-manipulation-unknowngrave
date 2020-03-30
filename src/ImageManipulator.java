@@ -176,28 +176,9 @@ public class ImageManipulator {
     }
 
     public static RGB applyTransform(RGB rgb) {
-//        int r = (int) (rgb.GetRed() + Math.pow(128 - abs(rgb.GetRed() - 128), .5));
-//        int g = (int) (rgb.GetGreen() - Math.pow(128 - abs(rgb.GetGreen() - 128), .5));
-//        int b = (int) (rgb.GetBlue() + Math.pow((128 - rgb.GetBlue()), .333));
-
-        // not bad
-//        int r = rgb.GetRed() > 128 ? (int) (rgb.GetRed() * 1.1 > 255 ? 255 : rgb.GetRed() * 1.1) : rgb.GetRed();
-//        int g = rgb.GetGreen() > 128 ? (int) (rgb.GetGreen() * .9)  : rgb.GetGreen();
-//        int b = rgb.GetBlue() < 128 ? (int) (rgb.GetBlue() * 1.1) : (int) (rgb.GetBlue() * .9);
-
-        // warm filter
-//        int r = rgb.GetRed();
-//        int g = (int) (rgb.GetGreen() / 1.5);
-//        int b = (int) (rgb.GetBlue() / 3);
-
-        // cold filter
-        int r = (int) (rgb.GetRed() / 1.3);
-        int g = (int) (rgb.GetGreen() / 1.1);
-        int b = rgb.GetBlue();
-
-//        int r = (int) (rgb.GetRed() );
-//        int g = (int) (rgb.GetGreen() );
-//        int b = rgb.GetBlue();
+        int r = rgb.GetRed();
+        int g = (int) (rgb.GetGreen() / 1.5);
+        int b = (int) (rgb.GetBlue() / 3);
 
         return new RGB(r, g, b);
     }

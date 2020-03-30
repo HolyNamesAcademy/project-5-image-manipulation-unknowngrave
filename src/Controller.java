@@ -21,10 +21,16 @@ public class Controller {
             try {
                 System.out.println("Commands:");
                 System.out.println("\t'load'");
+                System.out.println("\t'save'");
                 System.out.println("\t'grayscale'");
+                System.out.println("\t'invert'");
                 System.out.println("\t'sepia'");
                 System.out.println("\t'bw'");
-                System.out.println("\t'save'");
+                System.out.println("\t'rotate'");
+                System.out.println("\t'instagram'");
+                System.out.println("\t'hue'");
+                System.out.println("\t'saturation'");
+                System.out.println("\t'lightness'");
                 System.out.println("\t'quit'");
 
                 System.out.println("Enter a command ('help' to see list):");
@@ -38,9 +44,23 @@ public class Controller {
                         DrawImage();
                         break;
                     }
+                    case "save": {
+                        System.out.println("Enter image format (jpg, png, etc):");
+                        String format = scanner.next();
+
+                        System.out.println("Enter image save path:");
+                        String path = scanner.next();
+
+                        ImageManipulator.SaveImage(image, format, path);
+                        break;
+                    }
                     case "grayscale": {
                         image = ImageManipulator.ConvertToGrayScale(image);
                         DrawImage();
+                        break;
+                    }
+                    case "invert": {
+                        image = ImageManipulator.InvertImage(image);
                         break;
                     }
                     case "sepia": {
@@ -56,20 +76,6 @@ public class Controller {
                     case "rotate": {
                         image = ImageManipulator.RotateImage(image);
                         DrawImage();
-                        break;
-                    }
-                    case "invert": {
-                        image = ImageManipulator.InvertImage(image);
-                        break;
-                    }
-                    case "save": {
-                        System.out.println("Enter image format (jpg, png, etc):");
-                        String format = scanner.next();
-
-                        System.out.println("Enter image save path:");
-                        String path = scanner.next();
-
-                        ImageManipulator.SaveImage(image, format, path);
                         break;
                     }
                     case "instagram": {
