@@ -90,7 +90,7 @@ These are the functions you will implement:
     - **AddSaturation**:
     - **AddLightness**:
     
-We suggest starting with implementing all the RGB methods *except* **GetHSL**. Then start implenting the methods in ImageManipulator; the first three are the easiest, the next two are a bit more difficult, and the last four rather tough. Note that you will want to implement the **GetHSL** method in the RGB class as well as all the methods in the HSL class before proceeding to the last three methods in ImageManipulator.
+Start off by implementing all the RGB methods *except* **GetHSL**; nothing else will work until this is done. Then we suggest starting to implenting the methods in ImageManipulator; the first three are the easiest, the next two are a bit more difficult, and the last four rather tough. Note that you will want to implement the **GetHSL** method in the RGB class as well as all the methods in the HSL class before proceeding to the last three methods in ImageManipulator.
     
 Committing your Changes and Turning In The Project
 -----
