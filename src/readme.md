@@ -35,7 +35,7 @@ The color space in each element of the array can be represented as either RGB or
 
 [RGB](https://en.wikipedia.org/wiki/RGB_color_model) is a way of representing colors by constructing them from various intensities of red, green, and blue light. They are most often represented in programming as a tuple:
 
-    (red: 145, green: 198, blue: 54 )
+    ( red: 145, green: 198, blue: 54 )
 
 The intensity of each component color is a value between 0 and 255.
 
