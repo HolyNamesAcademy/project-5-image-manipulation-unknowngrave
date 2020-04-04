@@ -3,18 +3,27 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Created by hgotu on 3/19/2020.
+ * Controller is responsible for end-to-end execution of commands from the user.
+ * Controller listens for commands from the user. Once the commands come in,
+ * Controller parses the necessary information and delegates to ImageManipulator
+ * to actually do image manipulation. Once ImageManipulator returns the transformed
+ * image, Controller displays the image to the user.
  */
 public class Controller {
-    ImageWrapper image;
+    Img image;
     JFrame frame;
 
+    /**
+     * Create a UI window to display image
+     */
     public Controller() {
         frame = new JFrame();
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    /**
+     * Wait for and execute commands from the user
+     */
     public void Start() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -33,7 +42,7 @@ public class Controller {
                 System.out.println("\t'lightness'");
                 System.out.println("\t'quit'");
 
-                System.out.println("Enter a command ('help' to see list):");
+                System.out.println("Enter a command:");
                 String command = scanner.next();
 
                 switch (command) {
@@ -45,13 +54,10 @@ public class Controller {
                         break;
                     }
                     case "save": {
-                        System.out.println("Enter image format (jpg, png, etc):");
-                        String format = scanner.next();
-
                         System.out.println("Enter image save path:");
                         String path = scanner.next();
 
-                        ImageManipulator.SaveImage(image, format, path);
+                        ImageManipulator.SaveImage(image, path);
                         break;
                     }
                     case "grayscale": {
@@ -105,6 +111,7 @@ public class Controller {
                         return;
                     }
                     default: {
+                        System.out.println("Command not found.");
                         break;
                     }
                 }
@@ -116,10 +123,14 @@ public class Controller {
         }
     }
 
+    /**
+     * Removes the old image and draws a new image in the UI Window
+     */
     public void DrawImage() {
         frame.getContentPane().removeAll();
         frame.getContentPane().add(image);
 
+        // todo: fix the sizing of the UI window
         frame.setSize(image.GetScaledWidth() + 20, image.GetScaledHeight() + 20);
         frame.setVisible(true);
     }

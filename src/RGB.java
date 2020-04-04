@@ -1,21 +1,26 @@
 /**
- * Created by hgotu on 3/11/2020.
+ * This class encapsulates a red-green-blue representation of a pixel.
  */
 public class RGB {
     private int red;
     private int green;
     private int blue;
 
+    // Constructors
+
     public RGB() {
         red = 0;
         green = 0;
         blue = 0;
     }
+
     public RGB(int red, int green, int blue) {
         this.red = red;
         this.green = green;
         this.blue = blue;
     }
+
+    // Getters
 
     public int GetRed() {
         return red;
@@ -29,6 +34,12 @@ public class RGB {
         return blue;
     }
 
+    /*
+    Setters
+    NOTE: these setters should only allow valid channel values
+    That means cases where a user tries to set channel value < 0
+    or channel value > 255 should be handled properly.
+     */
     public void SetRed(int red) {
         if (red > 255) {
             this.red = 255;
@@ -71,7 +82,13 @@ public class RGB {
         this.blue = blue;
     }
 
-    public HSL GetHSL() {
+    /**
+     * Converts an RGB values to HSL values.
+     * Here's some info on how the conversion works:
+     *  https://math.stackexchange.com/questions/556341/rgb-to-hsv-color-conversion-algorithm
+     * @return HSL representation of the pixel
+     */
+    public HSL ConvertToHSL() {
         double r = red / (double) 255;
         double g = green / (double) 255;
         double b = blue / (double) 255;

@@ -1,16 +1,20 @@
 /**
- * Created by hgotu on 3/29/2020.
+ * This class encapsulates a hue-saturation-lightness representation of a pixel.
  */
 public class HSL {
     private int hue;
     private double saturation;
     private double lightness;
 
+    // Constructors
+
     public HSL(int hue, double saturation, double lightness) {
         this.hue = hue;
         this.saturation = saturation;
         this.lightness = lightness;
     }
+
+    // Getters
 
     public int GetHue() {
         return hue;
@@ -24,6 +28,13 @@ public class HSL {
         return lightness;
     }
 
+    /*
+    Setters
+    NOTE: these setters should only allow valid channel values.
+    0 <= hue <= 360
+    0 <= saturation <= 1
+    0 <= lightness <= 1
+     */
     public void SetHue(int hue) {
         if (hue > 360) {
             this.hue = 360;
@@ -65,6 +76,12 @@ public class HSL {
         this.lightness = lightness;
     }
 
+    /**
+     * Converts an HSL representation of a pixel to an RGB representation. Here's some
+     * info on how the algorithm works:
+     *  https://en.wikipedia.org/wiki/HSL_and_HSV#To_RGB
+     * @return an RGB representation of the pixel
+     */
     public RGB GetRGB() {
         double chroma = (1 - Math.abs(2 * lightness - 1)) * saturation;
         double hprime = hue / 60.0;
