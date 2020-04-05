@@ -15,7 +15,7 @@ Getting started
 -----
 Go to the [Getting Started With The First Project](https://holynamesseattle.sharepoint.com/sites/Section_6558/_layouts/OneNote.aspx?id=%2Fsites%2FSection_6558%2FSiteAssets%2FProjects%20in%20Comp%20Sci%20-%20Mon-Wed%2019-20%20Notebook&wd=target%28Class%20Overview.one%7C74AD5220-0070-4A9A-BD5E-85B1624E453C%2FGetting%20Started%20With%20A%20Project%7C127DA7EC-BEEC-4463-BE97-A79C378AD455%2F%29) in the OneNote (I suggest you look in the OneNote, since it also has screenshots to follow along with, but the instructions are also below) and follow the instructions to open the project in IntelliJ.
 
-1. Go to this link: https://classroom.github.com/a/<link TBD> and accept the assignment. It should take you to your project page. (If it doesn't, click on the link above again, and click on the link to the project page).
+1. Go to this link: https://classroom.github.com/a/Ek3YlSwW and accept the assignment. It should take you to your project page. (If it doesn't, click on the link above again, and click on the link to the project page).
 2. On the GitHub project page, click on the green "Clone or Download" button and copy the link.
 3. Open Intellij, click on the "Checkout from Version Control" drop down and select "GitHub"
 4. On the next page paste the link you copied into the "Git Repository URL" box. 
