@@ -43,25 +43,13 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.7.0</version>
         </plugin>
-        <!-- <plugin>
+        <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.20.1</version>
-          <executions>
-            <execution>
-              <id>extracredit</id>
-              <goals>
-                <goal>test</goal>
-              </goals>
-              <configuration>
-                <test>**/ShapeMakerExtraCreditTest.java, **/ArrayListPracticeExtraCreditTest.java</test>
-                <testFailureIgnore>true</testFailureIgnore>
-              </configuration>
-            </execution>
-          </executions>
           <configuration>
-            <test>**/ShapeMakerTest.java, **/BankAccountTest.java, **/ArrayListPracticeTest.java</test>
+            <test>**/ImageManipulatorTest.java</test>
           </configuration>
-        </plugin> -->
+        </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
