@@ -64,30 +64,30 @@ The program allows you to run several commands that allows you to manipulate ima
 - **invert**: will invert each pixel of the image.
 - **sepia**: will take the loaded image and convert it to sepia.
 - **bw**: will take the loaded image and convert it to black and white.
-- **rotate**: will rotate the image 180 degrees.
+- **rotate**: will rotate the image 90 degrees clockwise.
 - **instagram**: will apply a halo and grain effect ala Instagram.
 - **hue**, **saturation**, and **lightness** will adjust the hue, saturation, and lightness of the image.
 
 These are the functions you will implement:
 
 - In RGB.java:
-    - **RGB**: (Two constructors)
-    - **(Get|Set)(Red|Green|Blue)**:
+    - **RGB**: There are two constructors that need to be implemented. Details are in the comments above the methods and should be self explanatory.
+    - **(Get|Set)(Red|Green|Blue)**: Gettors and settors for the member variables need to be implemented.
 
 - In HSL.java:
-    - **HSL**:
-    - **(Get|Set)(Hue|Saturation|Lightness)**:
+    - **HSL**: Just one constructor to implement.
+    - **(Get|Set)(Hue|Saturation|Lightness)**: Gettors and settors for the member variables need to be implemented.
 
-- In ImageManipulator.java:
-    - **ConvertToGrayScale**:
-    - **InvertImage**:
-    - **ConvertToSepia**:
-    - **ConvertToBW**:
-    - **RotateImage**:
-    - **InstagramFilter**:
-    - **SetHue**:
-    - **SetSaturation**:
-    - **SetLightness**:
+- In ImageManipulator.java (the comments above each method explain what needs to be done and the unit tests can be used to verify):
+    - **ConvertToGrayScale**
+    - **InvertImage**
+    - **ConvertToSepia**
+    - **ConvertToBW**
+    - **RotateImage**
+    - **InstagramFilter**
+    - **SetHue**
+    - **SetSaturation**
+    - **SetLightness**
     
 Start off by implementing all the RGB methods as nothing else will work until this is done. Then we suggest starting to implenting the methods in ImageManipulator; the first three are the easiest, the next two are a bit more difficult, and the last four rather tough. Note that you will want to implement all the methods in the HSL class before proceeding to the last three methods in ImageManipulator.
     
