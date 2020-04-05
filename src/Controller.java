@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -47,16 +48,15 @@ public class Controller {
 
                 switch (command) {
                     case "load": {
-                        System.out.println("Enter image path:"); // todo: hagotur: deal with paths with spaces
-                        String path = scanner.next();
+                        System.out.println("Enter image path:");
+                        String path = GetPathFromUser(scanner);
                         image = ImageManipulator.LoadImage(path);
                         DrawImage();
                         break;
                     }
                     case "save": {
                         System.out.println("Enter image save path:");
-                        String path = scanner.next();
-
+                        String path = GetPathFromUser(scanner);
                         ImageManipulator.SaveImage(image, path);
                         break;
                     }
@@ -128,10 +128,14 @@ public class Controller {
      */
     public void DrawImage() {
         frame.getContentPane().removeAll();
+        image.setPreferredSize(new Dimension(image.GetScaledWidth(), image.GetScaledHeight()));
         frame.getContentPane().add(image);
-
-        // todo: fix the sizing of the UI window
-        frame.setSize(image.GetScaledWidth() + 20, image.GetScaledHeight() + 20);
+        frame.pack();
         frame.setVisible(true);
+    }
+
+    private String GetPathFromUser(Scanner scanner) {
+        scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 }

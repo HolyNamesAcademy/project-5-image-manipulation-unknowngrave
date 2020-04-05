@@ -108,6 +108,6 @@ public class Img extends JPanel {
      * @param g
      */
     public void paint(Graphics g) {
-        g.drawImage(image.getScaledInstance(GetScaledWidth(), GetScaledHeight(), java.awt.Image.SCALE_DEFAULT), 10, 10, this);
+        g.drawImage(image.getScaledInstance(GetScaledWidth(), GetScaledHeight(), java.awt.Image.SCALE_DEFAULT), 0, 0, this);
     }
 }
