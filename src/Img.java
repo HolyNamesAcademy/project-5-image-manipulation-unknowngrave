@@ -1,10 +1,9 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * This class represents an image and provides operations on top of an image such

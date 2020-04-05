@@ -1,8 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
-
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
 
 /**
  * Static utility class that is responsible for transforming the images.
@@ -64,11 +60,6 @@ public class ImageManipulator {
      * @return image transformed to sepia
      */
     public static Img ConvertToSepia(Img image) {
-        // Implement this method and remove the line below
-        throw new UnsupportedOperationException();
-    }
-
-    private static double GetLuminance(RGB rgb) {
         // Implement this method and remove the line below
         throw new UnsupportedOperationException();
     }
