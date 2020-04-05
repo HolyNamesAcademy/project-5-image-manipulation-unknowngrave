@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -89,7 +88,7 @@ public class ImageManipulator {
     }
 
     /**
-     * Rotates the image 90 degress clockwise.
+     * Rotates the image 90 degrees clockwise.
      * @param image image to transform
      * @return image rotated 90 degrees clockwise
      */
@@ -100,13 +99,13 @@ public class ImageManipulator {
 
     /**
      * Applies an Instagram-like filter to the image. To do so, we apply the following transformations:
-     * 1) We apply a "warm" filter. We can produce warm colors by reducing the amount of blue in the image.
-     *      for each pixel, apply the following transformation:
-     *          r = r
-     *          g = g / 1.5
-     *          b = b / 3
+     * 1) We apply a "warm" filter. We can produce warm colors by reducing the amount of blue in the image
+     *      and increasing the amount of red. For each pixel, apply the following transformation:
+     *          r = r * 1.2
+     *          g = g
+     *          b = b / 1.5
      * 2) We add a vignette (a black gradient around the border) by combining our image with an
-     *      an image of a halo (you can seee the image at resources/halo.png). We take 65% of our
+     *      an image of a halo (you can see the image at resources/halo.png). We take 65% of our
      *      image and 35% of the halo image. For example:
      *          r = .65 * r_image + .35 * r_halo
      * 3) We add decorative grain by combining our image with a decorative grain image
@@ -120,46 +119,41 @@ public class ImageManipulator {
         throw new UnsupportedOperationException();
     }
 
-    public static RGB applyTransform(RGB rgb) {
-        // Implement this method and remove the line below
-        throw new UnsupportedOperationException();
-    }
-
     /**
-     * Adds a given amount of hue to the image. Hue can range from 0 to 360. We do this
-     * by converting each RGB pixel to an HSL pixel, applying the additional hue, and then
+     * Sets the given hue to each pixel image. Hue can range from 0 to 360. We do this
+     * by converting each RGB pixel to an HSL pixel, Setting the new hue, and then
      * converting each pixel back to an RGB pixel.
      * @param image image to transform
      * @param hue amount of hue to add
      * @return image with added hue
      */
-    public static Img AddHue(Img image, int hue) {
+    public static Img SetHue(Img image, int hue) {
         // Implement this method and remove the line below
         throw new UnsupportedOperationException();
     }
 
     /**
-     * Adds a given amount of saturation to the image. Saturation can range from 0 to 1. We do this
-     * by converting each RGB pixel to an HSL pixel, applying the additional saturation, and then
+     * Sets the given saturation to the image. Saturation can range from 0 to 1. We do this
+     * by converting each RGB pixel to an HSL pixel, setting the new saturation, and then
      * converting each pixel back to an RGB pixel.
      * @param image image to transform
      * @param saturation amount of saturation to add
      * @return image with added hue
      */
-    public static Img AddSaturation(Img image, double saturation) {
+    public static Img SetSaturation(Img image, double saturation) {
         // Implement this method and remove the line below
         throw new UnsupportedOperationException();
     }
 
     /**
-     * Adds a given amount of lightness to the image. Lightness can range from 0 to 1. We do this
-     * by converting each RGB pixel to an HSL pixel, applying the additional lightness, and then
+     * Sets the lightness to the image. Lightness can range from 0 to 1. We do this
+     * by converting each RGB pixel to an HSL pixel, setting the new lightness, and then
      * converting each pixel back to an RGB pixel.
      * @param image image to transform
      * @param lightness amount of hue to add
      * @return image with added hue
      */
-    public static Img AddLightness(Img image, double lightness) {
+    public static Img SetLightness(Img image, double lightness) {
         // Implement this method and remove the line below
         throw new UnsupportedOperationException();
     }
