@@ -84,7 +84,7 @@ public class Img extends JPanel {
 
     /**
      * Saves the image to given file path
-     * @param format format in which to save the image
+     * @param format format in which to save the image (ex. "jpg")
      * @param savePath path to save the image to
      * @throws IOException
      */

@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -28,7 +27,7 @@ public class ImageManipulator {
      * @throws IOException
      */
     public static void SaveImage(Img image, String path) throws IOException {
-        String format = path.substring(path.lastIndexOf('.'));
+        String format = path.substring(path.lastIndexOf('.') + 1);
         image.Save(format, path);
     }
 
@@ -223,8 +222,8 @@ public class ImageManipulator {
     }
 
     /**
-     * Adds a given amount of hue to the image. Hue can range from 0 to 360. We do this
-     * by converting each RGB pixel to an HSL pixel, applying the additional hue, and then
+     * Sets the given hue to each pixel image. Hue can range from 0 to 360. We do this
+     * by converting each RGB pixel to an HSL pixel, Setting the new hue, and then
      * converting each pixel back to an RGB pixel.
      * @param image image to transform
      * @param hue amount of hue to add
@@ -234,7 +233,7 @@ public class ImageManipulator {
         for (int i = 0; i < image.GetHeight(); ++i) {
             for (int j = 0; j < image.GetWidth(); j++) {
                 HSL hsl = image.GetRGB(j, i).ConvertToHSL();
-                hsl.SetHue(hsl.GetHue() + hue);
+                hsl.SetHue(hue);
                 image.SetRGB(j, i, hsl.GetRGB());
             }
         }
@@ -243,8 +242,8 @@ public class ImageManipulator {
     }
 
     /**
-     * Adds a given amount of saturation to the image. Saturation can range from 0 to 1. We do this
-     * by converting each RGB pixel to an HSL pixel, applying the additional saturation, and then
+     * Sets the given saturation to the image. Saturation can range from 0 to 1. We do this
+     * by converting each RGB pixel to an HSL pixel, setting the new saturation, and then
      * converting each pixel back to an RGB pixel.
      * @param image image to transform
      * @param saturation amount of saturation to add
@@ -254,7 +253,7 @@ public class ImageManipulator {
         for (int i = 0; i < image.GetHeight(); ++i) {
             for (int j = 0; j < image.GetWidth(); j++) {
                 HSL hsl = image.GetRGB(j, i).ConvertToHSL();
-                hsl.SetSaturation(hsl.GetSaturation() + saturation);
+                hsl.SetSaturation(saturation);
                 image.SetRGB(j, i, hsl.GetRGB());
             }
         }
@@ -263,8 +262,8 @@ public class ImageManipulator {
     }
 
     /**
-     * Adds a given amount of lightness to the image. Lightness can range from 0 to 1. We do this
-     * by converting each RGB pixel to an HSL pixel, applying the additional lightness, and then
+     * Sets the lightness to the image. Lightness can range from 0 to 1. We do this
+     * by converting each RGB pixel to an HSL pixel, setting the new lightness, and then
      * converting each pixel back to an RGB pixel.
      * @param image image to transform
      * @param lightness amount of hue to add
@@ -274,7 +273,7 @@ public class ImageManipulator {
         for (int i = 0; i < image.GetHeight(); ++i) {
             for (int j = 0; j < image.GetWidth(); j++) {
                 HSL hsl = image.GetRGB(j, i).ConvertToHSL();
-                hsl.SetLightness(hsl.GetLightness() + lightness);
+                hsl.SetLightness(lightness);
                 image.SetRGB(j, i, hsl.GetRGB());
             }
         }
