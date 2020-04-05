@@ -43,7 +43,7 @@ public class ImageManipulatorTest {
     public void convertToGrayScale() throws Exception {
         // arrange
         Img start = LoadImage("testresources/testImage.jpg");
-        Img expected = LoadImage("testresources/grayscale.jpg");
+        Img expected = LoadImage("testresources/grayscale.png");
 
         // act
         Img actual = ImageManipulator.ConvertToGrayScale(start);
@@ -56,7 +56,7 @@ public class ImageManipulatorTest {
     public void invertImage() throws Exception {
         // arrange
         Img start = LoadImage("testresources/testImage.jpg");
-        Img expected = LoadImage("testresources/invert.jpg");
+        Img expected = LoadImage("testresources/invert.png");
 
         // act
         Img actual = ImageManipulator.InvertImage(start);
@@ -69,7 +69,7 @@ public class ImageManipulatorTest {
     public void convertToSepia() throws Exception {
         // arrange
         Img start = LoadImage("testresources/testImage.jpg");
-        Img expected = LoadImage("testresources/sepia.jpg");
+        Img expected = LoadImage("testresources/sepia.png");
 
         // act
         Img actual = ImageManipulator.ConvertToSepia(start);
@@ -82,7 +82,7 @@ public class ImageManipulatorTest {
     public void convertToBW() throws Exception {
         // arrange
         Img start = LoadImage("testresources/testImage.jpg");
-        Img expected = LoadImage("testresources/bw.jpg");
+        Img expected = LoadImage("testresources/bw.png");
 
         // act
         Img actual = ImageManipulator.ConvertToBW(start);
@@ -95,7 +95,7 @@ public class ImageManipulatorTest {
     public void rotateImage() throws Exception {
         // arrange
         Img start = LoadImage("testresources/testImage.jpg");
-        Img expected = LoadImage("testresources/rotate.jpg");
+        Img expected = LoadImage("testresources/rotate.png");
 
         // act
         Img actual = ImageManipulator.RotateImage(start);
@@ -108,7 +108,7 @@ public class ImageManipulatorTest {
     public void instagramFilter() throws Exception {
         // arrange
         Img start = LoadImage("testresources/testImage.jpg");
-        Img expected = LoadImage("testresources/instagram.jpg");
+        Img expected = LoadImage("testresources/instagram.png");
 
         // act
         Img actual = ImageManipulator.InstagramFilter(start);
@@ -118,18 +118,42 @@ public class ImageManipulatorTest {
     }
 
     @Test
-    public void addHue() throws Exception {
+    public void setHue() throws Exception {
+        // arrange
+        Img start = LoadImage("testresources/testImage.jpg");
+        Img expected = LoadImage("testresources/hue.png");
 
+        // act
+        Img actual = ImageManipulator.SetHue(start, 200);
+
+        // assert
+        assertTrue(CompareImages(expected, actual));
     }
 
     @Test
-    public void addSaturation() throws Exception {
+    public void setSaturation() throws Exception {
+        // arrange
+        Img start = LoadImage("testresources/testImage.jpg");
+        Img expected = LoadImage("testresources/saturation.png");
 
+        // act
+        Img actual = ImageManipulator.SetSaturation(start, .2);
+
+        // assert
+        assertTrue(CompareImages(expected, actual));
     }
 
     @Test
-    public void addLightness() throws Exception {
+    public void setLightness() throws Exception {
+        // arrange
+        Img start = LoadImage("testresources/testImage.jpg");
+        Img expected = LoadImage("testresources/lightness.png");
 
+        // act
+        Img actual = ImageManipulator.SetLightness(start, .5);
+
+        // assert
+        assertTrue(CompareImages(expected, actual));
     }
 
     private Img LoadImage(String path) throws IOException {
@@ -170,7 +194,7 @@ public class ImageManipulatorTest {
         if (Math.abs(expected.GetRed() - actual.GetRed()) > 1
             || Math.abs(expected.GetGreen() - actual.GetGreen()) > 1
             || Math.abs(expected.GetBlue() - actual.GetBlue()) > 1) {
-            return false;
+           return false;
         }
 
         return true;

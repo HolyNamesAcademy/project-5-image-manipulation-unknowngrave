@@ -143,7 +143,7 @@ public class ImageManipulator {
     }
 
     /**
-     * Rotates the image 90 degress clockwise.
+     * Rotates the image 90 degrees clockwise.
      * @param image image to transform
      * @return image rotated 90 degrees clockwise
      */
@@ -160,13 +160,13 @@ public class ImageManipulator {
 
     /**
      * Applies an Instagram-like filter to the image. To do so, we apply the following transformations:
-     * 1) We apply a "warm" filter. We can produce warm colors by reducing the amount of blue in the image.
-     *      for each pixel, apply the following transformation:
-     *          r = r
-     *          g = g / 1.5
-     *          b = b / 3
+     * 1) We apply a "warm" filter. We can produce warm colors by reducing the amount of blue in the image
+     *      and increasing the amount of red. For each pixel, apply the following transformation:
+     *          r = r * 1.2
+     *          g = g
+     *          b = b / 1.5
      * 2) We add a vignette (a black gradient around the border) by combining our image with an
-     *      an image of a halo (you can seee the image at resources/halo.png). We take 65% of our
+     *      an image of a halo (you can see the image at resources/halo.png). We take 65% of our
      *      image and 35% of the halo image. For example:
      *          r = .65 * r_image + .35 * r_halo
      * 3) We add decorative grain by combining our image with a decorative grain image
@@ -189,9 +189,9 @@ public class ImageManipulator {
             for (int j = 0; j < image.GetWidth(); j++) {
                 RGB haloPixel = halo.GetRGB(j * halo.GetWidth() / image.GetWidth(), i * halo.GetHeight() / image.GetHeight());
                 RGB imagePixel = image.GetRGB(j, i);
-                imagePixel.SetRed((int) (0.65 * imagePixel.GetRed() + 0.35 * haloPixel.GetRed()) + 20);
-                imagePixel.SetGreen((int) (0.65 * imagePixel.GetGreen() + 0.35 * haloPixel.GetGreen()) + 20);
-                imagePixel.SetBlue((int) (0.65 * imagePixel.GetBlue() + 0.35 * haloPixel.GetBlue()) + 20);
+                imagePixel.SetRed((int) (0.65 * imagePixel.GetRed() + 0.35 * haloPixel.GetRed()));
+                imagePixel.SetGreen((int) (0.65 * imagePixel.GetGreen() + 0.35 * haloPixel.GetGreen()));
+                imagePixel.SetBlue((int) (0.65 * imagePixel.GetBlue() + 0.35 * haloPixel.GetBlue()));
 
                 image.SetRGB(j, i, imagePixel);
             }
@@ -214,9 +214,9 @@ public class ImageManipulator {
     }
 
     public static RGB applyTransform(RGB rgb) {
-        int r = rgb.GetRed();
-        int g = (int) (rgb.GetGreen() / 1.5);
-        int b = (int) (rgb.GetBlue() / 3);
+        int r = (int) (rgb.GetRed() * 1.2);
+        int g = rgb.GetGreen();
+        int b = (int) (rgb.GetBlue() / 1.5);
 
         return new RGB(r, g, b);
     }
@@ -229,7 +229,7 @@ public class ImageManipulator {
      * @param hue amount of hue to add
      * @return image with added hue
      */
-    public static Img AddHue(Img image, int hue) {
+    public static Img SetHue(Img image, int hue) {
         for (int i = 0; i < image.GetHeight(); ++i) {
             for (int j = 0; j < image.GetWidth(); j++) {
                 HSL hsl = image.GetRGB(j, i).ConvertToHSL();
@@ -249,7 +249,7 @@ public class ImageManipulator {
      * @param saturation amount of saturation to add
      * @return image with added hue
      */
-    public static Img AddSaturation(Img image, double saturation) {
+    public static Img SetSaturation(Img image, double saturation) {
         for (int i = 0; i < image.GetHeight(); ++i) {
             for (int j = 0; j < image.GetWidth(); j++) {
                 HSL hsl = image.GetRGB(j, i).ConvertToHSL();
@@ -269,7 +269,7 @@ public class ImageManipulator {
      * @param lightness amount of hue to add
      * @return image with added hue
      */
-    public static Img AddLightness(Img image, double lightness) {
+    public static Img SetLightness(Img image, double lightness) {
         for (int i = 0; i < image.GetHeight(); ++i) {
             for (int j = 0; j < image.GetWidth(); j++) {
                 HSL hsl = image.GetRGB(j, i).ConvertToHSL();

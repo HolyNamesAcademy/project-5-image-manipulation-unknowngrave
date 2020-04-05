@@ -90,21 +90,21 @@ public class Controller {
                         break;
                     }
                     case "hue": {
-                        System.out.println("Enter hue to add:");
+                        System.out.println("Enter hue to set (0, 359):");
                         int hue = scanner.nextInt();
-                        image = ImageManipulator.AddHue(image, hue);
+                        image = ImageManipulator.SetHue(image, hue);
                         break;
                     }
                     case "saturation": {
-                        System.out.println("Enter saturation to add:");
+                        System.out.println("Enter saturation to set (0, 1):");
                         double saturation = scanner.nextDouble();
-                        image = ImageManipulator.AddSaturation(image, saturation);
+                        image = ImageManipulator.SetSaturation(image, saturation);
                         break;
                     }
                     case "lightness": {
-                        System.out.println("Enter lightness to add:");
+                        System.out.println("Enter lightness to set (0, 1):");
                         double lightness = scanner.nextDouble();
-                        image = ImageManipulator.AddLightness(image, lightness);
+                        image = ImageManipulator.SetLightness(image, lightness);
                         break;
                     }
                     case "quit": {

@@ -15,9 +15,21 @@ public class RGB {
     }
 
     public RGB(int red, int green, int blue) {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+        this.red = truncate(red);
+        this.green = truncate(green);
+        this.blue = truncate(blue);
+    }
+
+    private int truncate(int value) {
+        if (value < 0) {
+            return 0;
+        }
+
+        if (value > 255) {
+            return 255;
+        }
+
+        return value;
     }
 
     // Getters
@@ -41,45 +53,15 @@ public class RGB {
     or channel value > 255 should be handled properly.
      */
     public void SetRed(int red) {
-        if (red > 255) {
-            this.red = 255;
-            return;
-        }
-
-        if (red < 0) {
-            this.red = 0;
-            return;
-        }
-
-        this.red = red;
+        this.red = truncate(red);
     }
 
     public void SetGreen(int green) {
-        if (green > 255) {
-            this.green = 255;
-            return;
-        }
-
-        if (green < 0) {
-            this.green = 0;
-            return;
-        }
-
-        this.green = green;
+        this.green = truncate(green);
     }
 
     public void SetBlue(int blue) {
-        if (blue > 255) {
-            this.blue = 255;
-            return;
-        }
-
-        if (blue < 0) {
-            this.blue = 0;
-            return;
-        }
-
-        this.blue = blue;
+        this.blue = truncate(blue);
     }
 
     /**
