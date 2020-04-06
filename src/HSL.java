@@ -14,9 +14,9 @@ public class HSL {
      *    0 <= hue <= 360
      *    0 <= saturation <= 1
      *    0 <= lightness <= 1
-     * @param hue value
-     * @param saturation value
-     * @param lightness value
+     * @param hue hue value
+     * @param saturation saturation value
+     * @param lightness lightness value
      */
     public HSL(int hue, double saturation, double lightness) {
         // Implement this method and remove the line below
