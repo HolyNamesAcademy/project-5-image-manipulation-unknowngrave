@@ -21,6 +21,7 @@ public class HSL {
     public HSL(int hue, double saturation, double lightness) {
         // Implement this method and remove the line below
         throw new UnsupportedOperationException();
+    }
 
     // Getters
 
