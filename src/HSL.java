@@ -8,24 +8,35 @@ public class HSL {
 
     // Constructors
 
+    /**
+     * Initializes a pixel with the given HSL values. Note this constructor
+     * only creates valid pixels. Only allow valid HSL values:
+     *    0 <= hue <= 360
+     *    0 <= saturation <= 1
+     *    0 <= lightness <= 1
+     * @param hue value
+     * @param saturation value
+     * @param lightness value
+     */
     public HSL(int hue, double saturation, double lightness) {
-        this.hue = hue;
-        this.saturation = saturation;
-        this.lightness = lightness;
-    }
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
 
     // Getters
 
     public int GetHue() {
-        return hue;
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
     }
 
     public double GetSaturation() {
-        return saturation;
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
     }
 
     public double GetLightness() {
-        return lightness;
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
     }
 
     /*
@@ -36,44 +47,18 @@ public class HSL {
     0 <= lightness <= 1
      */
     public void SetHue(int hue) {
-        if (hue > 360) {
-            this.hue = 360;
-            return;
-        }
-
-        if (hue < 0) {
-            this.hue = 0;
-            return;
-        }
-
-        this.hue = hue;
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
     }
 
     public void SetSaturation(double saturation) {
-        if (saturation > 1.0) {
-            this.saturation = 1.0;
-            return;
-        }
-        if (saturation < 0.0) {
-            this.saturation = 0.0;
-            return;
-        }
-
-        this.saturation = saturation;
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
     }
 
     public void SetLightness(double lightness) {
-        if (lightness > 1.0) {
-            this.lightness = 1.0;
-            return;
-        }
-
-        if (lightness < 0.0) {
-            this.lightness = 0.0;
-            return;
-        }
-
-        this.lightness = lightness;
+        // Implement this method and remove the line below
+        throw new UnsupportedOperationException();
     }
 
     /**
