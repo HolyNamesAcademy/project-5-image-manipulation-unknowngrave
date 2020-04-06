@@ -58,7 +58,7 @@ The Project
 In this project, you will be implementing functionality to manipulate images in various ways.
 
 The program allows you to run several commands that allows you to manipulate images; see below for more detailed information about each of these image manipulations. Here are the commands that the program allows you to run:
-- **load** and **save**: have already been implemented for you. When you run the program, you will need to call **load** with the file you wish the manipulate and **save** after you manipulate the image.
+- **load** and **save**: When you run the program, you will need to call **load** with the file you wish the manipulate and **save** after you manipulate the image.
 - **quit**: has also been implemented for you.
 - **grayscale**: will take the loaded image and convert it to grayscale.
 - **invert**: will invert each pixel of the image.
@@ -79,6 +79,8 @@ These are the functions you will implement:
     - **(Get|Set)(Hue|Saturation|Lightness)**: Gettors and settors for the member variables need to be implemented.
 
 - In ImageManipulator.java (the comments above each method explain what needs to be done and the unit tests can be used to verify):
+    - **Load** (hint: the Img class provides mechanisms to load and save, use those rather than trying to come up with special logic)
+    - **Save**
     - **ConvertToGrayScale**
     - **InvertImage**
     - **ConvertToSepia**
