@@ -9,19 +9,18 @@ We know that hard, and honest work doesn't come easily. If you feel like you are
 
 1. Don't copy-paste code, or let someone do your work for you
 2. Ask for help!
-3. Tell the teaching-team you need more time 
+3. Tell the teaching-team you need more time
 
 Getting started
 -----
-Go to the [Getting Started With The First Project](https://holynamesseattle.sharepoint.com/sites/Section_6558/_layouts/OneNote.aspx?id=%2Fsites%2FSection_6558%2FSiteAssets%2FProjects%20in%20Comp%20Sci%20-%20Mon-Wed%2019-20%20Notebook&wd=target%28Class%20Overview.one%7C74AD5220-0070-4A9A-BD5E-85B1624E453C%2FGetting%20Started%20With%20A%20Project%7C127DA7EC-BEEC-4463-BE97-A79C378AD455%2F%29) in the OneNote (I suggest you look in the OneNote, since it also has screenshots to follow along with, but the instructions are also below) and follow the instructions to open the project in IntelliJ.
-
-1. Go to this link: https://classroom.github.com/a/Ek3YlSwW and accept the assignment. It should take you to your project page. (If it doesn't, click on the link above again, and click on the link to the project page).
-2. On the GitHub project page, click on the green "Clone or Download" button and copy the link.
-3. Open Intellij, click on the "Checkout from Version Control" drop down and select "GitHub"
-4. On the next page paste the link you copied into the "Git Repository URL" box. 
-5. Click Clone. You may have to enter your GitHub username and password.
-6. If it asks you whether you want to open the project or not, select yes.
-7. You should see your project open. If you need to reopen the project, you should see it under "File > Open Recent"
+1. Go to the provided assignment link, and click accept. It should take you to your project page.
+  (If it doesn't, click on the link above again, and click on the link to the project page).
+1. On the GitHub project page, click on the green "Clone or Download" button and copy the link.
+2. Open Intellij, click on the "Checkout from Version Control" drop down and select "GitHub"
+3. On the next page paste the link you copied into the "Git Repository URL" box.
+4. Click Clone. You may have to enter your GitHub username and password.
+5. If it asks you whether you want to open the project or not, select yes.
+6. You should see your project open. If you need to reopen the project, you should see it under "File > Open Recent"
 
 Background
 -----
@@ -44,7 +43,7 @@ The intensity of each component color is a value between 0 and 255.
 [HSL](https://en.wikipedia.org/wiki/HSL_and_HSV) is an alternate way of representing a color space by describing it's hue, saturation, and lightness, similar to how a color wheel represents colors. Like RGB, it can also be represented as a tuple:
 
     ( hue: 285, sat: 0.36, lightness: 0.87 )
-    
+
 Unlike RGB, each component is represented differently:
 
 - Hue: a value between 0 and 360
@@ -90,9 +89,9 @@ These are the functions you will implement:
     - **SetHue**
     - **SetSaturation**
     - **SetLightness**
-    
+
 Start off by implementing all the RGB methods as nothing else will work until this is done. Then we suggest starting to implenting the methods in ImageManipulator; the first three are the easiest, the next two are a bit more difficult, and the last four rather tough. Note that you will want to implement all the methods in the HSL class before proceeding to the last three methods in ImageManipulator.
-    
+
 Committing your Changes and Turning In The Project
 -----
 The same instructions with screenshots are in the OneNote at the bottom of the page [here](https://holynamesseattle.sharepoint.com/sites/Section_6558/_layouts/OneNote.aspx?id=%2Fsites%2FSection_6558%2FSiteAssets%2FProjects%20in%20Comp%20Sci%20-%20Mon-Wed%2019-20%20Notebook&wd=target%28Class%20Overview.one%7C74AD5220-0070-4A9A-BD5E-85B1624E453C%2FGetting%20Started%20With%20A%20Project%7C127DA7EC-BEEC-4463-BE97-A79C378AD455%2F%29).
@@ -104,10 +103,10 @@ At the end of every class period, you should commit your changes. "Committing yo
 
 You can commit and push ("push" means send it to GitHub.com to save it there) by doing the steps below:
 
-1. Once you are ready to save your changes, click on VCS > Commit Changes… in the taskbar. 
-2. It will show you a list of files that you have made changes to. (It might also show changes to a file called workspace.xml, which you didn’t touch. That's ok, IntelliJ modifies that file behind the scenes). You can double click on any file and see the changes you've made to the file. 
+1. Once you are ready to save your changes, click on VCS > Commit Changes… in the taskbar.
+2. It will show you a list of files that you have made changes to. (It might also show changes to a file called workspace.xml, which you didn’t touch. That's ok, IntelliJ modifies that file behind the scenes). You can double click on any file and see the changes you've made to the file.
 3. Hover over the commit button and select "Commit and Push". It will prompt you, asking if you are sure. Select "Commit", and then on the next page, select "Push".
-4. Go to your project page on GitHub, and make sure that your changes are there. 
+4. Go to your project page on GitHub, and make sure that your changes are there.
 5. That's it. The last change you submit before the deadline will be considered your turned in assignment. You can turn in additional submissions after the deadline, but remember that there is a 10% penalty added each week after the deadline you turn in the assignment.
 
 # Grading
