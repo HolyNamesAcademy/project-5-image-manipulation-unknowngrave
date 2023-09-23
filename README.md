@@ -111,7 +111,7 @@ You can commit and push ("push" means send it to GitHub.com to save it there) by
 4. Go to your project page on GitHub, and make sure that your changes are there.
 5. That's it. The last change you submit before the deadline will be considered your turned in assignment. You can turn in additional submissions after the deadline, but remember that there is a 10% penalty added each week after the deadline you turn in the assignment.
 
-# Grading
+## Grading
 
 Your grade for each project will fall into one of four categories:
 
