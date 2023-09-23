@@ -1,4 +1,4 @@
-Image Manipulation
+Project: Image Manipulation
 =========
 
 Good work pledge
@@ -15,12 +15,12 @@ Getting started
 -----
 1. Go to the provided assignment link, and click accept. It should take you to your project page.
   (If it doesn't, click on the link above again, and click on the link to the project page).
-1. On the GitHub project page, click on the green "Clone or Download" button and copy the link.
-2. Open Intellij, click on the "Checkout from Version Control" drop down and select "GitHub"
-3. On the next page paste the link you copied into the "Git Repository URL" box.
-4. Click Clone. You may have to enter your GitHub username and password.
-5. If it asks you whether you want to open the project or not, select yes.
-6. You should see your project open. If you need to reopen the project, you should see it under "File > Open Recent"
+2. On the GitHub project page, click on the green "Clone or Download" button and copy the link.
+3. Open Intellij, click on the "Checkout from Version Control" drop down and select "GitHub"
+4. On the next page paste the link you copied into the "Git Repository URL" box.
+5. Click Clone. You may have to enter your GitHub username and password.
+6. If it asks you whether you want to open the project or not, select yes.
+7. You should see your project open. If you need to reopen the project, you should see it under "File > Open Recent"
 
 Background
 -----
